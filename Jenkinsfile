@@ -22,7 +22,7 @@ pipeline {
             steps {
                 sh 'npm run build'
                 script { 
-                     archiveArtifacts(artifacts: "build/*")
+                     archiveArtifacts(artifacts: "build/**/*")
                 }
             }
         }
