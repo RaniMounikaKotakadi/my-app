@@ -39,9 +39,9 @@ pipeline {
                 withCredentials([sshUserPrivateKey(credentialsId: 'aws_ssh_credential', usernameVariable: 'SSH_USERNAME', keyFileVariable: 'SSH_PRIVATE_KEY')]) {
                     sh """
                         ssh-agent /bin/bash
-                        eval $(ssh-agent -s)
+                        eval \$(ssh-agent -s)
                         ssh-add ${SSH_PRIVATE_KEY}
-                        ssh -oStrictHostKeyChecking=no ${SSH_USERNAME}@$deployment_server ls /
+                        ssh -oStrictHostKeyChecking=no ${SSH_USERNAME}@\$deployment_server ls /
                     """
                 }
             }
