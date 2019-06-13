@@ -41,7 +41,7 @@ pipeline {
                         ssh-agent /bin/bash
                         eval \$(ssh-agent -s)
                         ssh-add ${SSH_PRIVATE_KEY}
-                        ssh -oStrictHostKeyChecking=no ${SSH_USERNAME}@\$deployment_server ls /
+                        ssh -oStrictHostKeyChecking=no ${SSH_USERNAME}@\$deployment_server 'cd /var/www && sudo mkdir -p ./backup && sudo tar -czf backup/html_\$(date +%d%m%Y%H%M%S).tar.gz html && sudo rm -rf html/*'
                     """
                 }
             }
