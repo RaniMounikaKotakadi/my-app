@@ -21,6 +21,9 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'npm run build'
+                script 
+                     archiveArtifacts(artifacts: "build/*")
+                }
             }
         }
 
