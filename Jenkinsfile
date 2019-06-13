@@ -37,7 +37,7 @@ pipeline {
             steps {
                 sh 'echo deploying'
                 withCredentials([sshUserPrivateKey(credentialsId: 'aws_ssh_credential', usernameVariable: 'SSH_USERNAME', keyFileVariable: 'SSH_PRIVATE_KEY')]) {
-                    sh ‘ssh-agent /bin/bash’
+                    sh 'ssh-agent /bin/bash'
                     sh 'eval $(ssh-agent -s)'
                     sh "ssh-add ${SSH_PRIVATE_KEY}"
                     sh "ssh -oStrictHostKeyChecking=no ${SSH_USERNAME}@$deployment_server ls /"
