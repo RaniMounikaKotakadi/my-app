@@ -16,7 +16,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Awesome app
+          Assignment of Pepper Cloud
         </a>
       </header>
     </div>
